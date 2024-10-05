@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="561.0" prefWidth="989.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.customer.Customer_Form_Controller">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#192a56" height="79.0" stroke="BLACK" strokeType="INSIDE" width="989.0" />
+      <Label alignment="CENTER" layoutX="367.0" layoutY="9.0" prefHeight="61.0" prefWidth="216.0" text="Customer Form" textFill="#f2f0f0">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtId" layoutX="14.0" layoutY="106.0" prefHeight="38.0" prefWidth="166.0" promptText="Customer ID" />
+      <JFXTextField fx:id="txtName" layoutX="212.0" layoutY="106.0" prefHeight="38.0" prefWidth="166.0" promptText="Name" />
+      <JFXTextField fx:id="txtProvince" layoutX="597.0" layoutY="106.0" prefHeight="38.0" prefWidth="166.0" promptText="Province" />
+      <JFXTextField fx:id="txtPostalCode" layoutX="791.0" layoutY="106.0" prefHeight="38.0" prefWidth="184.0" promptText="Postal Code" />
+      <JFXComboBox fx:id="cmbTitle" layoutX="400.0" layoutY="106.0" prefHeight="38.0" prefWidth="166.0" promptText="Title" />
+      <JFXTextField fx:id="txtSalary" layoutX="14.0" layoutY="180.0" prefHeight="38.0" prefWidth="166.0" promptText="Salary" />
+      <JFXTextField fx:id="txtAddress" layoutX="392.0" layoutY="180.0" prefHeight="38.0" prefWidth="166.0" promptText="Address" />
+      <JFXTextField fx:id="txtCity" layoutX="597.0" layoutY="180.0" prefHeight="38.0" prefWidth="166.0" promptText="City" />
+      <DatePicker fx:id="dobBirthDay" layoutX="201.0" layoutY="182.0" prefHeight="38.0" prefWidth="166.0" promptText="Date Of Birth" />
+      <TableView fx:id="tblCustomer" layoutX="15.0" layoutY="295.0" prefHeight="200.0" prefWidth="959.0" styleClass="style.css">
+        <columns>
+          <TableColumn fx:id="colId" prefWidth="67.0" text="ID" />
+          <TableColumn fx:id="colName" prefWidth="116.0" text="Name" />
+            <TableColumn fx:id="colTitle" prefWidth="130.0" text="Title" />
+            <TableColumn fx:id="colProvince" prefWidth="114.0" text="Province" />
+            <TableColumn fx:id="colPostalCode" prefWidth="100.0" text="Postal Code" />
+            <TableColumn fx:id="colSalary" prefWidth="112.0" text="Salary" />
+            <TableColumn fx:id="colBirthDay" prefWidth="100.0" text="Birth Day" />
+            <TableColumn fx:id="colAddress" prefWidth="115.0" text="Address" />
+            <TableColumn fx:id="colCity" prefWidth="104.0" text="City" />
+        </columns>
+      </TableView>
+      <JFXButton fx:id="btnReload" layoutX="450.0" layoutY="509.0" onAction="#btnReloadOnAction" prefHeight="38.0" prefWidth="90.0" style="-fx-background-color: #273c75;" text="Reload" textFill="#f8f3f3">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnAdd" layoutX="566.0" layoutY="243.0" onAction="#btnAddOnAction" prefHeight="38.0" prefWidth="90.0" ripplerFill="#9a3d3d" style="-fx-background-color: #44bd32;" text="Add" textFill="#f8f1f1">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnUpdate" layoutX="663.0" layoutY="243.0" onAction="#btnUpdateOnAction" prefHeight="38.0" prefWidth="90.0" style="-fx-background-color: #fbc531;" text="Update" textFill="#f8f1f1">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnDelete" layoutX="760.0" layoutY="243.0" onAction="#btnDeleteOnAction" prefHeight="38.0" prefWidth="90.0" style="-fx-background-color: #e84118;" text="Delete" textFill="#f8f4f4">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnSearch" layoutX="857.0" layoutY="243.0" onAction="#btnSearchOnAction" prefHeight="38.0" prefWidth="90.0" style="-fx-background-color: #00a8ff;" text="Search" textFill="#fcf7f7">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnItem" layoutX="15.0" layoutY="243.0" onAction="#btnItemOnAction" prefHeight="38.0" prefWidth="90.0" text="Item" />
+   </children>
+</AnchorPane>

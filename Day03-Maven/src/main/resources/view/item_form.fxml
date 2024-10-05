@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="540.0" prefWidth="932.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.item.ItemFormController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0b4275" height="82.0" stroke="BLACK" strokeType="INSIDE" width="932.0" />
+      <Label alignment="CENTER" layoutX="355.0" layoutY="19.0" prefHeight="45.0" prefWidth="222.0" text="Item Form" textFill="#f8f3f3">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtItem" layoutX="27.0" layoutY="109.0" prefHeight="34.0" prefWidth="173.0" promptText="Item Code">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtDescription" layoutX="281.0" layoutY="109.0" prefHeight="34.0" prefWidth="384.0" promptText="Description">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtUnitPrice" layoutX="27.0" layoutY="174.0" prefHeight="34.0" prefWidth="173.0" promptText="Unit Price">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtPackSize" layoutX="738.0" layoutY="109.0" prefHeight="34.0" prefWidth="173.0" promptText="Pack Size">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtQtyOnHand" layoutX="281.0" layoutY="174.0" prefHeight="34.0" prefWidth="173.0" promptText="Qty On Hand">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXButton fx:id="btnAdd" layoutX="501.0" layoutY="236.0" onAction="#btnAddOnAction" prefHeight="34.0" prefWidth="88.0" style="-fx-background-color: #44bd32;" text="Add">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnUpdate" layoutX="603.0" layoutY="236.0" onAction="#btnUpdateOnAction" prefHeight="34.0" prefWidth="88.0" style="-fx-background-color: #fbc531;" text="Update">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnDelete" layoutX="705.0" layoutY="236.0" onAction="#btnDeleteOnAction" prefHeight="34.0" prefWidth="88.0" style="-fx-background-color: #e84118;" text="Delete">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnSearch" layoutX="806.0" layoutY="236.0" onAction="#btnSearchOnAction" prefHeight="34.0" prefWidth="88.0" style="-fx-background-color: #00a8ff;" text="Search">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnReload" layoutX="422.0" layoutY="500.0" onAction="#btnReloadOnAction" prefHeight="34.0" prefWidth="88.0" style="-fx-background-color: #0b4275;" text="Reload" textFill="#f5ecec">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <TableView fx:id="tblItem" layoutX="27.0" layoutY="289.0" prefHeight="200.0" prefWidth="881.0">
+        <columns>
+          <TableColumn fx:id="colItemCode" prefWidth="135.0" text="Item Code" />
+          <TableColumn fx:id="colDescription" prefWidth="335.0" text="Description" />
+            <TableColumn fx:id="colPackSize" prefWidth="140.0" text="Pack Size" />
+            <TableColumn fx:id="colUnitPrice" prefWidth="135.0" text="Unit Price" />
+            <TableColumn fx:id="colQtyOnHand" prefWidth="135.0" text="Qty On Hand" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
