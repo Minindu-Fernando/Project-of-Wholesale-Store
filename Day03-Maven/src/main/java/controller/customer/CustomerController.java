@@ -115,5 +115,18 @@ return  customerObservableList;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+
+
     }
+
+    public ObservableList<String> getCustomerIds(){
+        ObservableList<Customer> allCustomers = getAllCustomers();
+        ObservableList<String> idList = FXCollections.observableArrayList();
+        allCustomers.forEach(customer -> {
+            idList.add(customer.getId());
+        });
+        return idList;
+    }
+
+
 }

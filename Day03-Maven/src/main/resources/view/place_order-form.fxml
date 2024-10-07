@@ -40,15 +40,15 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtOrderId" layoutX="167.0" layoutY="108.0" prefHeight="32.0" prefWidth="168.0" text="Order ID" />
+      <JFXTextField fx:id="txtOrderId" layoutX="167.0" layoutY="108.0" prefHeight="32.0" prefWidth="168.0" promptText="Order ID" />
       <JFXComboBox fx:id="cmbCustomerId" layoutX="65.0" layoutY="181.0" prefHeight="32.0" prefWidth="145.0" promptText="Customer ID :" />
-      <JFXComboBox fx:id="cmbItemCode" layoutX="65.0" layoutY="241.0" prefHeight="32.0" prefWidth="145.0" promptText="Iteem Code :" />
-      <JFXTextField fx:id="txtName" layoutX="269.0" layoutY="181.0" prefHeight="32.0" prefWidth="183.0" text="Name" />
-      <JFXTextField fx:id="txtItemDescription" layoutX="263.0" layoutY="241.0" prefHeight="32.0" prefWidth="183.0" text="Item Description" />
-      <JFXTextField fx:id="txtCity" layoutX="506.0" layoutY="181.0" prefHeight="32.0" prefWidth="183.0" text="City" />
-      <JFXTextField fx:id="txtUnitPrice" layoutX="500.0" layoutY="241.0" prefHeight="32.0" prefWidth="183.0" text="Unit Price" />
-      <JFXTextField fx:id="txtSalary" layoutX="752.0" layoutY="181.0" prefHeight="32.0" prefWidth="183.0" text="Salary" />
-      <JFXTextField fx:id="txtStock" layoutX="746.0" layoutY="241.0" prefHeight="32.0" prefWidth="183.0" text="On Stock" />
+      <JFXComboBox fx:id="cmbItemCode" layoutX="65.0" layoutY="241.0" prefHeight="32.0" prefWidth="145.0" promptText="Item Code :" />
+      <JFXTextField fx:id="txtName" layoutX="269.0" layoutY="181.0" prefHeight="32.0" prefWidth="183.0" promptText="Name" />
+      <JFXTextField fx:id="txtItemDescription" layoutX="263.0" layoutY="241.0" prefHeight="32.0" prefWidth="183.0" promptText="Item Description" />
+      <JFXTextField fx:id="txtCity" layoutX="506.0" layoutY="181.0" prefHeight="32.0" prefWidth="183.0" promptText="City" />
+      <JFXTextField fx:id="txtUnitPrice" layoutX="500.0" layoutY="241.0" prefHeight="32.0" prefWidth="183.0" promptText="Unit Price" />
+      <JFXTextField fx:id="txtSalary" layoutX="752.0" layoutY="181.0" prefHeight="32.0" prefWidth="183.0" promptText="Salary" />
+      <JFXTextField fx:id="txtStock" layoutX="746.0" layoutY="241.0" prefHeight="32.0" prefWidth="183.0" promptText="On Stock" />
       <TableView fx:id="tblOrders" layoutX="39.0" layoutY="381.0" prefHeight="200.0" prefWidth="935.0" stylesheets="@../css/style.css">
         <columns>
           <TableColumn fx:id="colItemCode" prefWidth="144.0" text="Item Code " />
