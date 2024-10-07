@@ -11,7 +11,6 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="665.0" prefWidth="999.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.placeOrder.PlaceOrderFormController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1a4368" height="84.0" stroke="BLACK" strokeType="INSIDE" width="999.0" />
@@ -63,7 +62,7 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </JFXButton>
-      <JFXTextField fx:id="txtQty" layoutX="689.0" layoutY="321.0" prefHeight="32.0" prefWidth="122.0" text="QTY" />
+      <JFXTextField fx:id="txtQty" layoutX="689.0" layoutY="321.0" prefHeight="32.0" prefWidth="122.0" promptText="QTY" />
       <JFXButton fx:id="btnPlaceOrder" layoutX="874.0" layoutY="600.0" onAction="#btnPlaceOrderOnAction" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: #009432;" text="Place Order" textFill="#fcfafa">
          <font>
             <Font name="System Bold" size="13.0" />
