@@ -1,4 +1,4 @@
-package controller.placeOrder;
+package controller.order;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
@@ -13,18 +13,17 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.Duration;
-import model.CartTM;
-import model.Customer;
-import model.Item;
-import model.OrderDetail;
+import model.*;
 
 import java.net.URL;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Date;
@@ -113,7 +112,8 @@ public class PlaceOrderFormController implements Initializable {
     void btnPlaceOrderOnAction(ActionEvent event) {
         String orderId = txtOrderId.getText();
         String customerId = cmbCustomerId.getValue();
-        String orderDate = lblDate.getText();
+        //String orderDate = lblDate.getText();
+        LocalDate now = LocalDate.now();
 
         List<OrderDetail> orderDetails = new ArrayList<>();
 
@@ -122,6 +122,12 @@ public class PlaceOrderFormController implements Initializable {
             String itemCode = cartTM.getItemCode();
             Integer qty = cartTM.getQty();
             orderDetails.add(new OrderDetail(orderId, itemCode, qty, 0.0));
+        }
+
+        if(new OrderController().placeOrder(new Order(orderId,now,customerId,orderDetails))) {
+            new Alert(Alert.AlertType.INFORMATION, "Order Placed!!").show();
+        }else{
+            new Alert(Alert.AlertType.ERROR, "Order Not Placed!!").show();
         }
 
     }
