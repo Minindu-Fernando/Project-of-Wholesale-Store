@@ -6,14 +6,15 @@ import java.util.List;
 
 public class OrderDetailController {
     public static boolean addOrderDetail(List<OrderDetail> orderDetails) throws SQLException {
-        for (OrderDetail orderDetail : orderDetails){
+        for (OrderDetail orderDetail : orderDetails) {
             boolean isOrderDetailAdd = addOrderDetail(orderDetail);
-            if (!isOrderDetailAdd){
+            if (!isOrderDetailAdd) {
                 return false;
             }
         }
         return true;
     }
+
     public static boolean addOrderDetail(OrderDetail orderDetail) throws SQLException {
         return CrudUtil.execute("INSERT INTO orderdetil VALUES(?,?,?,?)",
                 orderDetail.getOrderId(),
@@ -21,4 +22,5 @@ public class OrderDetailController {
                 orderDetail.getQty(),
                 orderDetail.getDiscount()
         );
+    }
 }
