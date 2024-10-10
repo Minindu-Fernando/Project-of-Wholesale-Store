@@ -21,11 +21,14 @@ import javafx.util.Duration;
 import model.CartTM;
 import model.Customer;
 import model.Item;
+import model.OrderDetail;
 
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class PlaceOrderFormController implements Initializable {
@@ -101,13 +104,25 @@ public class PlaceOrderFormController implements Initializable {
 
         Double total = unitPrice * qty;
 
-cart.add(new CartTM (cmbItemCode.getValue(), txtItemDescription.getText(), qty, unitPrice, total));
-tblOrders.setItems(cart);
-calculateNetTotal();
+        cart.add(new CartTM(cmbItemCode.getValue(), txtItemDescription.getText(), qty, unitPrice, total));
+        tblOrders.setItems(cart);
+        calculateNetTotal();
     }
 
     @FXML
     void btnPlaceOrderOnAction(ActionEvent event) {
+        String orderId = txtOrderId.getText();
+        String customerId = cmbCustomerId.getValue();
+        String orderDate = lblDate.getText();
+
+        List<OrderDetail> orderDetails = new ArrayList<>();
+
+        for (CartTM cartTM : cart) {
+
+            String itemCode = cartTM.getItemCode();
+            Integer qty = cartTM.getQty();
+            orderDetails.add(new OrderDetail(orderId, itemCode, qty, 0.0));
+        }
 
     }
 
@@ -149,11 +164,12 @@ calculateNetTotal();
         txtSalary.setText(String.valueOf(customer.getSalary()));
     }
 
-    public void calculateNetTotal(){
+    public void calculateNetTotal() {
         Double total = 0.0;
-        for (CartTM cartTM: cart ){
+        for (CartTM cartTM : cart) {
             total += cartTM.getTotal();
-        };
+        }
+        ;
         lblNetTotal.setText(total.toString());
     }
 
