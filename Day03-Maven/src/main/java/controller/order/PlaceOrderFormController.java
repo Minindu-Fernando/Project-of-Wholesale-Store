@@ -5,6 +5,7 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import controller.customer.CustomerController;
 import controller.item.ItemControlller;
+import db.DBConnection;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -198,5 +199,9 @@ public class PlaceOrderFormController implements Initializable {
         loadCustomerIds();
         loadDateAndTime();
         loadItemcode();
+    }
+
+    public void btnCommitOnAction(ActionEvent actionEvent) throws SQLException {
+        DBConnection.getInstance().getConnection().commit();
     }
 }

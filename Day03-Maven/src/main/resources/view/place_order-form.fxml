@@ -79,5 +79,6 @@
          </font>
       </Label>
       <Separator layoutX="122.0" layoutY="157.0" prefHeight="9.0" prefWidth="753.0" />
+      <JFXButton fx:id="btnCommit" layoutX="754.0" layoutY="600.0" onAction="#btnCommitOnAction" prefHeight="32.0" prefWidth="88.0" style="-fx-background-color: #FFC312;" text="Commit" />
    </children>
 </AnchorPane>
