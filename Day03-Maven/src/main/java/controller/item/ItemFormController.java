@@ -111,7 +111,7 @@ public class ItemFormController implements Initializable {
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
         Item item = new Item(txtItem.getText(), txtDescription.getText(), txtPackSize.getText(), Double.parseDouble(txtUnitPrice.getText()), Integer.parseInt(txtQtyOnHand.getText()));
-            if (itemController.updateItem(item)) {
+            if (itemService.updateItem(item)) {
                 new Alert(Alert.AlertType.INFORMATION, "" + txtItem.getText() + " : Item Updated...").show();
                 loadTable();
             }

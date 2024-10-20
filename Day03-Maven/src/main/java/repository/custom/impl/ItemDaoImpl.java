@@ -27,8 +27,20 @@ public class ItemDaoImpl implements ItemDao {
     }
 
     @Override
-    public boolean update(ItemEntity entity, String s) {
-        return false;
+    public boolean update(ItemEntity item, String itemCode) {
+        String SQL = "UPDATE Item SET Description=?,PackSize=?,UnitPrice=?,QtyOnHand=? WHERE ItemCode =?";
+        try {
+            return CrudUtil.execute(SQL,
+                    item.getDescription(),
+                    item.getPackSize(),
+                    item.getUnitPrice(),
+                    item.getQtyOnHand(),
+                    itemCode
+            );
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
     @Override
