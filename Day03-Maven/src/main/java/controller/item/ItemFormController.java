@@ -11,6 +11,9 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import dto.Item;
+import service.ServiceFactory;
+import service.SuperService;
+import util.ServiceType;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -71,8 +74,10 @@ public class ItemFormController implements Initializable {
     void btnAddOnAction(ActionEvent event) {
 
         Item item = new Item(txtItem.getText(), txtDescription.getText(), txtPackSize.getText(), Double.parseDouble(txtUnitPrice.getText()), Integer.parseInt(txtQtyOnHand.getText()));
+        service.custom.ItemService itemService = ServiceFactory.getInstance().getServiceType(ServiceType.ITEM);
+        boolean isItemAdded = itemService.addItem(item);
 
-        boolean isItemAdded = itemController.addItem(item);
+        //boolean isItemAdded = itemController.addItem(item);
         if (isItemAdded) {
             new Alert(Alert.AlertType.INFORMATION, "Item Added").show();
             loadTable();
