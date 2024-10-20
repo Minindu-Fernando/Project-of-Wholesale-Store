@@ -11,10 +11,12 @@ import service.custom.CustomerService;
 import util.DaoType;
 
 public class CustomerServiceImpl implements CustomerService {
+    CustomerDao customerDao = DaoFactory.getInstance().getDaoType(DaoType.CUSTMER);
+
     @Override
     public boolean addCustomer(Customer customer) {
         System.out.println("Service : " + customer);
-        CustomerDao customerDao = DaoFactory.getInstance().getDaoType(DaoType.CUSTMER);
+        customerDao = DaoFactory.getInstance().getDaoType(DaoType.CUSTMER);
         CustomerEntity  entity = new ModelMapper().map(customer, CustomerEntity.class);
         return customerDao.save(entity);
 
@@ -32,7 +34,8 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public boolean deleteCustomer(String id) {
-        return false;
+      return customerDao.delete(id);
+
     }
 
     @Override

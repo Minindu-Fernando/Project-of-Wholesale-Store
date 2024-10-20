@@ -99,12 +99,14 @@ public class Customer_Form_Controller implements Initializable {
     private JFXTextField txtSalary;
 
     CustomerService customerController = new CustomerController();
+    service.custom.CustomerService customerService = ServiceFactory.getInstance().getServiceType(ServiceType.CUSTOMER);
+
 
     @FXML
     void btnAddOnAction(ActionEvent event) {
 
         Customer customer = new Customer(txtId.getText(), cmbTitle.getValue(), txtName.getText(), dobBirthDay.getValue(), Double.parseDouble(txtSalary.getText()), txtAddress.getText(), txtCity.getText(), txtProvince.getText(), txtPostalCode.getText());
-        service.custom.CustomerService customerService = ServiceFactory.getInstance().getServiceType(ServiceType.CUSTOMER);
+        customerService = ServiceFactory.getInstance().getServiceType(ServiceType.CUSTOMER);
         boolean isCustomerAdd = customerService.addCustomer(customer);
 
         if (isCustomerAdd) {
@@ -118,7 +120,8 @@ public class Customer_Form_Controller implements Initializable {
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
-        if (customerController.deleteCustomer(txtId.getText())) {
+
+        if (customerService.deleteCustomer(txtId.getText())) {
             new Alert(Alert.AlertType.INFORMATION, "" + txtId.getText() + " : Customer Deleted").show();
             loadTable();
         } else {
