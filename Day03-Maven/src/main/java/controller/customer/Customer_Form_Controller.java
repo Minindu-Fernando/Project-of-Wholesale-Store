@@ -106,7 +106,6 @@ public class Customer_Form_Controller implements Initializable {
     void btnAddOnAction(ActionEvent event) {
 
         Customer customer = new Customer(txtId.getText(), cmbTitle.getValue(), txtName.getText(), dobBirthDay.getValue(), Double.parseDouble(txtSalary.getText()), txtAddress.getText(), txtCity.getText(), txtProvince.getText(), txtPostalCode.getText());
-        customerService = ServiceFactory.getInstance().getServiceType(ServiceType.CUSTOMER);
         boolean isCustomerAdd = customerService.addCustomer(customer);
 
         if (isCustomerAdd) {

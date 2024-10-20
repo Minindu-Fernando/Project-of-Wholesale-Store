@@ -69,12 +69,13 @@ public class ItemFormController implements Initializable {
     private JFXTextField txtUnitPrice;
 
     ItemService itemController = new ItemControlller();
+    service.custom.ItemService itemService = ServiceFactory.getInstance().getServiceType(ServiceType.ITEM);
+
 
     @FXML
     void btnAddOnAction(ActionEvent event) {
 
         Item item = new Item(txtItem.getText(), txtDescription.getText(), txtPackSize.getText(), Double.parseDouble(txtUnitPrice.getText()), Integer.parseInt(txtQtyOnHand.getText()));
-        service.custom.ItemService itemService = ServiceFactory.getInstance().getServiceType(ServiceType.ITEM);
         boolean isItemAdded = itemService.addItem(item);
 
         //boolean isItemAdded = itemController.addItem(item);
@@ -86,7 +87,7 @@ public class ItemFormController implements Initializable {
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
-        if (itemController.deleteItem(txtItem.getText())) {
+        if (itemService.deleteItem(txtItem.getText())) {
             new Alert(Alert.AlertType.INFORMATION, "" + txtItem.getText() + " : Item Deleted").show();
             loadTable();
         }

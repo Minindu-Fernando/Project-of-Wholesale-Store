@@ -11,16 +11,19 @@ import service.custom.ItemService;
 import util.DaoType;
 
 public class ItemServiceImpl implements ItemService {
+
+    ItemDao itemDao = DaoFactory.getInstance().getDaoType(DaoType.ITEM);
+
     @Override
     public boolean addItem(Item item) {
         System.out.println("ItemService :" + item);
-        ItemDao itemDao = DaoFactory.getInstance().getDaoType(DaoType.ITEM);
-       return itemDao.save(new ModelMapper().map(item, ItemEntity.class));
+        return itemDao.save(new ModelMapper().map(item, ItemEntity.class));
 
     }
 
     @Override
     public boolean updateItem(Item item) {
+
         return false;
     }
 
@@ -31,7 +34,7 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public boolean deleteItem(String id) {
-        return false;
+        return itemDao.delete(id);
     }
 
     @Override

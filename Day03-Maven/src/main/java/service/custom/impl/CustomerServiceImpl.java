@@ -16,7 +16,6 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public boolean addCustomer(Customer customer) {
         System.out.println("Service : " + customer);
-        customerDao = DaoFactory.getInstance().getDaoType(DaoType.CUSTMER);
         CustomerEntity  entity = new ModelMapper().map(customer, CustomerEntity.class);
         return customerDao.save(entity);
 
