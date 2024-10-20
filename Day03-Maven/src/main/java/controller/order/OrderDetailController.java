@@ -1,5 +1,5 @@
 package controller.order;
-import model.OrderDetail;
+import dto.OrderDetail;
 import util.CrudUtil;
 import java.sql.SQLException;
 import java.util.List;

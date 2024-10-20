@@ -2,7 +2,7 @@ package controller.order;
 
 import controller.item.ItemControlller;
 import db.DBConnection;
-import model.Order;
+import dto.Order;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

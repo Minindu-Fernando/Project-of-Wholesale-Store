@@ -2,9 +2,7 @@ package controller.customer;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.Alert;
-import model.Customer;
-import model.Item;
+import dto.Customer;
 import util.CrudUtil;
 
 import java.sql.ResultSet;

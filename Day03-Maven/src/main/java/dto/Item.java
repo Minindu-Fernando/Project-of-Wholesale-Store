@@ -1,18 +1,15 @@
-package model;
-
-
+package dto;
 import lombok.*;
-
-@Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
+@Setter
+@Getter
 @ToString
 
-public class CartTM {
+public class Item {
     private String itemCode;
     private String description;
-    private Integer qty;
+    private String packSize;
     private double unitPrice;
-    private Double total;
-
+    private int qtyOnHand;
 }

@@ -3,7 +3,6 @@ package controller.customer;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
-import db.DBConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -17,11 +16,11 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
-import model.Customer;
-import util.CrudUtil;
+import dto.Customer;
+import service.ServiceFactory;
+import util.ServiceType;
 
 import java.net.URL;
-import java.sql.*;
 import java.util.ResourceBundle;
 
 public class Customer_Form_Controller implements Initializable {
@@ -105,10 +104,15 @@ public class Customer_Form_Controller implements Initializable {
     void btnAddOnAction(ActionEvent event) {
 
         Customer customer = new Customer(txtId.getText(), cmbTitle.getValue(), txtName.getText(), dobBirthDay.getValue(), Double.parseDouble(txtSalary.getText()), txtAddress.getText(), txtCity.getText(), txtProvince.getText(), txtPostalCode.getText());
-        boolean isCustomerAdd = customerController.addCustomer(customer);
+        service.custom.CustomerService customerService = ServiceFactory.getInstance().getServiceType(ServiceType.CUSTOMER);
+        boolean isCustomerAdd = customerService.addCustomer(customer);
+
         if (isCustomerAdd) {
             new Alert(Alert.AlertType.INFORMATION, "Customer Added").show();
             loadTable();
+        }else {
+            new Alert(Alert.AlertType.ERROR, "Customer Not Added").show();
+
         }
     }
 
