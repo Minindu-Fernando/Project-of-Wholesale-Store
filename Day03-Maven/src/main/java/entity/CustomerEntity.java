@@ -1,15 +1,16 @@
-package dto;
+package entity;
 
 import lombok.*;
 
 import java.time.LocalDate;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
 @Getter
 @ToString
 
-public class Customer {
+public class CustomerEntity {
     private String id;
     private String title;
     private String name;
