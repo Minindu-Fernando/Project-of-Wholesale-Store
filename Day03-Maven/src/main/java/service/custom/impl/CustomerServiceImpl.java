@@ -23,7 +23,8 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public boolean updateCustomer(Customer customer) {
-        return false;
+        CustomerEntity  entity = new ModelMapper().map(customer, CustomerEntity.class);
+        return customerDao.update(entity,entity.getId());
     }
 
     @Override

@@ -33,8 +33,25 @@ public class CustomerDaoImpl implements CustomerDao {
     }
 
     @Override
-    public boolean update(CustomerEntity entity, String s) {
-        return false;
+    public boolean update(CustomerEntity customer, String id) {
+        String SQL = "UPDATE Customer SET CustName = ?,CustTitle=?,DOB=?,salary=?,CustAddress=?,City=?,Province=?,PostalCode=? WHERE CustId =?";
+        try {
+            return CrudUtil.execute(
+                    SQL,
+                    customer.getName(),
+                    customer.getTitle(),
+                    customer.getDob(),
+                    customer.getSalary(),
+                    customer.getAddress(),
+                    customer.getCity(),
+                    customer.getProvince(),
+                    customer.getPostalCode(),
+                    id
+            );
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
     @Override
@@ -51,6 +68,7 @@ public class CustomerDaoImpl implements CustomerDao {
 
     @Override
     public List<CustomerEntity> findAll() {
+
         return null;
     }
 }

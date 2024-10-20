@@ -141,7 +141,7 @@ public class Customer_Form_Controller implements Initializable {
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
         Customer customer = new Customer(txtId.getText(), cmbTitle.getValue(), txtName.getText(), dobBirthDay.getValue(), Double.parseDouble(txtSalary.getText()), txtAddress.getText(), txtCity.getText(), txtProvince.getText(), txtPostalCode.getText());
-            if (customerController.updateCustomer(customer)) {
+            if (customerService.updateCustomer(customer)) {
                 new Alert(Alert.AlertType.INFORMATION, "" + txtId.getText() + " : Customer Updated").show();
                 loadTable();
             }
